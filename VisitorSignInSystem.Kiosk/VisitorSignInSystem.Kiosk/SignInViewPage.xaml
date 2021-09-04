@@ -1,0 +1,142 @@
+﻿<Page
+    x:Class="VisitorSignInSystem.SignInViewPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" 
+    NavigationCacheMode="Disabled"
+    Tapped="Page_Tapped" Loaded="Page_Loaded">
+    <Page.Resources>
+
+        <SolidColorBrush x:Key="ButtonBackgroundDisabled" Color="Transparent"  />
+        <SolidColorBrush x:Key="ButtonBorderBrushDisabled" Color="Transparent"  />
+        <SolidColorBrush x:Key="ButtonForegroundDisabled" Color="Transparent"  />
+        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Transparent"  />
+        <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"  />
+        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Transparent"  />
+
+    </Page.Resources>
+    
+    <Grid x:Name="ContentArea" Background="White" Margin="0,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Disabled" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="35"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="35"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="120"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Background="White" Visibility="Visible"  HorizontalAlignment="Stretch" Margin="0,12,0,0" VerticalAlignment="Center">
+                <Image Name="image1" Source="{StaticResource siteLogo}" Width="150" Height="150" Stretch="Fill" />
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Margin="0,0,0,0" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <StackPanel VerticalAlignment="Center"  HorizontalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" >
+                <StackPanel>
+                    <TextBlock Text="Please Sign In" FontFamily="Segoe UI Semibold" Foreground="#05445E"  FontSize="75" Margin="0,40,0,0" 
+                           VerticalAlignment="Center" TextAlignment="Center" Width="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled" />
+                    <TextBlock Text="(Your information will only be used for check in)" FontSize="24" FontFamily="Segoe UI Semibold" Foreground="#4D6C67" HorizontalAlignment="Center" Padding="0" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,70,0,0" >
+                <TextBlock Margin="0,4,20,2" Style="{StaticResource TextBlockStyleCaption}" TextAlignment="Right" Width="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled" >* Required field</TextBlock>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="20,12,0,0" >
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
+                    <TextBlock Margin="10,5,15,0"  Style="{StaticResource BasicTextStyle}" TextAlignment="Right" Width="Auto"><Run Text="*" FontSize="36" Foreground="#4D6C67"/> First Name:</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                    <TextBox x:Name="FirstNameTextBox" IsEnabled="True" AcceptsReturn="False" IsColorFontEnabled="False" Width="400" Height="55" FontSize="36"
+                       PlaceholderText="Tap Here" Style="{StaticResource TextBoxStyle}" MaxLength="50" TabIndex="1" CharacterCasing="Upper"
+                             TextChanged="FirstNameTextBox_TextChanged" BeforeTextChanging="FirstNameTextBox_BeforeTextChanging" />
+                    <TextBlock Style="{StaticResource TextBlockStyleCaption}" TextAlignment="Left" Margin="0,10,0,0"  ScrollViewer.VerticalScrollBarVisibility="Disabled" ></TextBlock>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="Auto" Height="Auto" Margin="0,12,0,0" >
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Margin="26,0,0,0" >
+                    <TextBlock Margin="10,5,15,0"  Style="{StaticResource BasicTextStyle}" TextAlignment="Right" Width="Auto"><Run Text="*" FontSize="36" Foreground="#4D6C67"/> Last Name:</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                    <TextBox x:Name="LastNameTextBox" IsEnabled="True" AcceptsReturn="False" IsColorFontEnabled="False" Width="400" Height="55"  FontSize="36"
+                             Style="{StaticResource TextBoxStyle}" MaxLength="50" TabIndex="2" CharacterCasing="Upper"
+                             TextChanged="LastNameTextBox_TextChanged" BeforeTextChanging="LastNameTextBox_BeforeTextChanging" />
+                    <TextBlock Style="{StaticResource TextBlockStyleCaption}" TextAlignment="Left" Margin="0,10,0,0" HorizontalAlignment="Right"   ScrollViewer.VerticalScrollBarVisibility="Disabled" ></TextBlock>
+                </StackPanel>
+            </StackPanel>
+            
+            <!-- SAVE
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="Auto" Height="Auto" Margin="0,12,0,0" >
+                <TextBlock Margin="10,5,15,0" Style="{StaticResource BasicTextStyle}" TextAlignment="Right" Width="265">Mobile Number:</TextBlock>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left"> -->
+            <!--https://docs.microsoft.com/en-us/windows/communitytoolkit/extensions/textboxextensions-->            
+            <!-- SAVE
+                    <TextBox x:Name="MobileNumberTextBox" ui:TextBoxExtensions.Mask="999-999-9999" ui:TextBoxExtensions.MaskPlaceholder=" " Style="{StaticResource TextBoxStyle}" Width="300" Height="38" TabIndex="3" IsEnabled="True"  />
+                    <TextBlock Style="{StaticResource TextBlockStyleCaption}" TextAlignment="Left" Margin="0,10,0,0" HorizontalAlignment="Right"  ScrollViewer.VerticalScrollBarVisibility="Disabled" >(Optional)</TextBlock>
+                </StackPanel>
+            </StackPanel>-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="50,12,0,0" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,11,6,0" >
+                        <Image  Source="Assets/handicap.png" Stretch="UniformToFill" Width="36" Height="36" 
+                                HorizontalAlignment="Right" VerticalAlignment="Stretch"/>
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Row="0" Grid.Column="1" Margin="0,0,0,0" >
+                        <TextBlock Style="{StaticResource BasicTextStyle}" TextAlignment="Right" >Handicap:</TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Row="0" Grid.Column="2" Margin="15,12,0,8" Orientation="Horizontal">
+                        <StackPanel>
+                            <CheckBox Style="{StaticResource CheckBoxStyle1}" x:Name="IsHandicapCheckBox"  MinWidth="30" IsChecked="False" TabIndex="4" IsThreeState="False" Margin="0" HorizontalAlignment="Left" Foreground="#FF0E5B43" IsTabStop="True" Tapped="IsHandicapCheckBox_Tapped"  />
+                        </StackPanel>
+                        <StackPanel Margin="0,6,0,0">
+                            <TextBlock Style="{StaticResource TextBlockStyleCaption}" TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWholeWords" MaxWidth="375"
+                                    ScrollViewer.VerticalScrollBarVisibility="Disabled" >(If checked, you will be assigned to an accessible counter. Wait time may be longer)</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <StackPanel Width="Auto" Margin="10,0,0,0"  Background="White">
+                <Grid >
+                    <Ellipse Fill="#FF0C8DD6" Stroke="Black" StrokeThickness="1" />
+                    <Button Name="btnQuit"  Background="Transparent" Tapped="btnQuit_Tapped" TabIndex="6" >
+                        <TextBlock Padding="10" Text="&#xE72B;" FontFamily="Segoe MDL2 Assets" FontSize="80" Foreground="White" FontWeight="ExtraBold" />
+                    </Button>
+                </Grid>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Text="Back" FontSize="34" Foreground="#4D6C67" HorizontalAlignment="Center" Padding="0" Margin="10,0,0,0" />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="3" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Background="White">
+            <StackPanel Width="Auto" Margin="10,0,10,0" Background="White"> 
+                <Grid BorderBrush="Transparent" BorderThickness="0" >
+                    <Ellipse x:Name="nextEllipse" Fill="#FF9DAFB6" Stroke="Black" StrokeThickness="1" />
+                    <Button  Name="btnNext" Background="Transparent" IsEnabled="False" Tapped="btnNext_Tapped" TabIndex="6" >
+                        <TextBlock Padding="10" Text="&#xE72A;" FontFamily="Segoe MDL2 Assets" FontSize="80" Foreground="White" FontWeight="ExtraBold" />
+                    </Button>
+                </Grid>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Text="Next" FontSize="34" Foreground="#4D6C67" Padding="0" Margin="0,0,10,0" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
