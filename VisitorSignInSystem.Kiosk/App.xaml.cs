@@ -9,6 +9,7 @@ using VisitorSignInSystem.Models;
 /// Kiosk sign in UWP Application
 /// Created by Gregory Bologna
 /// UAT release date: 07/29/2021
+/// DevOps: https://manateepao.visualstudio.com/VisitorSignInSystem.Kiosk
 /// </summary>
 
 namespace VisitorSignInSystem

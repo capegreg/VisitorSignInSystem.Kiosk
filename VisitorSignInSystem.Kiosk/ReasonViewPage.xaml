@@ -11,7 +11,7 @@
     Loaded="Page_Loaded" Tapped="Page_Tapped" >
 
     <Page.Resources>
-        <DataTemplate x:Key="ImageOverlayTemplate" x:DataType="data:Categories" >
+        <DataTemplate x:Key="ImageOverlayTemplate" x:DataType="data:Category" >
             <Grid Margin="4,0,0,0" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>

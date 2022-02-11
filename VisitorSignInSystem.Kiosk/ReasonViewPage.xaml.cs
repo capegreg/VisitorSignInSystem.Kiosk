@@ -41,7 +41,7 @@ namespace VisitorSignInSystem
         readonly string fileName = "kiosk_settings.json";
         readonly string folderName = "KioskLocalSettings";
 
-        private ObservableCollection<Categories> Reasons;
+        private ObservableCollection<Category> Reasons;
 
         public bool storyBoardCompleted { get; set; }
         public bool visitorAddSuccess { get; set; }
@@ -57,7 +57,7 @@ namespace VisitorSignInSystem
             KioskErrorMessage = "";
 
             // load this here
-            Reasons = new ObservableCollection<Categories>();
+            Reasons = new ObservableCollection<Category>();
 
             ReasonGridSelectedStoryboard.Completed += ReasonGridSelectedStoryboard_Completed;
             ReasonSelectedFinishStoryboard.Completed += ReasonSelectedFinishStoryboard_Completed;
@@ -74,14 +74,14 @@ namespace VisitorSignInSystem
             GoToSplash();
         }
 
-        private void LoadReasons(List<Categories> cats)
+        private void LoadReasons(List<Category> cats)
         {
             Reasons.Clear();
 
             foreach (var c in cats)
             {
                 c.Icon = $"/Assets/" + c.Icon;
-                Reasons.Add(new Categories { Id = c.Id, Description = c.Description, Icon = c.Icon });
+                Reasons.Add(new Category { Id = c.Id, Description = c.Description, Icon = c.Icon });
             }
 
             stackInstructions.Visibility = Visibility.Visible;
@@ -201,7 +201,7 @@ namespace VisitorSignInSystem
 
         private void ReasonGrid_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Categories item = e.ClickedItem as Categories;
+            Category item = e.ClickedItem as Category;
             ((App)Application.Current).visitor.VisitCategoryId = (ushort)item.Id;
 
             if (!storyBoardCompleted)
@@ -284,13 +284,18 @@ namespace VisitorSignInSystem
                 _ = Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => VisitorAdded(m));
             });
 
-            connection.On<List<Categories>>("Categories", (m) =>
+            connection.On<List<Category>>("Categories", (m) =>
             {
                 _ = Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => LoadReasons(m));
             });
             #endregion
         } // end OpenConnection
 
+        /// <summary>
+        /// Callback after visitor add
+        /// TODO: handle when unsuccessful
+        /// </summary>
+        /// <param name="m"></param>
         private void VisitorAdded(bool m)
         {
             if (m)

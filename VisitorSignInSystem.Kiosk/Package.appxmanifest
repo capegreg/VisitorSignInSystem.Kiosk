@@ -9,13 +9,13 @@
 
   <Identity
     Name="VisitorSignInSystemKiosk"
-    Publisher="CN=gbologna"
-    Version="1.0.43.0" />
+    Publisher="CN=vsis.manateepao.gov, O=vsis.manateepao.gov, C=US"
+    Version="1.1.48.0" />
 
   <mp:PhoneIdentity PhoneProductId="DEADDA57-B233-4905-8FF2-8834AE030C1B" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>VSIS Kiosk</DisplayName>
+    <DisplayName>ms-resource:AppDisplayName</DisplayName>
     <PublisherDisplayName>MCPAO VSIS</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -33,8 +33,8 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="VisitorSignInSystem.Kiosk.App">
       <uap:VisualElements
-        DisplayName="VSIS Kiosk"
-        Description="Visitor Sign In System Kiosk Windows Universal Application."
+        DisplayName="ms-resource:AppDisplayName"
+        Description="ms-resource:AppDescription"
         BackgroundColor="white" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png">
         <uap:DefaultTile ShortName="VSIS Kiosk" Square71x71Logo="Assets\SmallTile.png" Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png">
           <uap:ShowNameOnTiles>
@@ -42,7 +42,8 @@
           </uap:ShowNameOnTiles>
         </uap:DefaultTile >
         <uap:InitialRotationPreference>
-          <uap:Rotation Preference="landscape"/></uap:InitialRotationPreference>
+          <uap:Rotation Preference="landscape"/>
+          <uap:Rotation Preference="portrait"/></uap:InitialRotationPreference>
         <uap:SplashScreen Image="Assets\SplashScreen.png"/>
       </uap:VisualElements>
 

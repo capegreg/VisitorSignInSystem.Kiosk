@@ -9,10 +9,10 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Visitor Sign In System Kiosk")]
 [assembly: AssemblyDescription("MCPAO VSIS")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Gregory Bologna")]
+[assembly: AssemblyCompany("Manatee County Property Appraiser")]
 [assembly: AssemblyProduct("Visitor Sign In System Kiosk")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
-[assembly: AssemblyTrademark("Gregory Bologna")]
+[assembly: AssemblyTrademark("MCPAO-FL")]
 [assembly: AssemblyCulture("")]
 
 // Version information for an assembly consists of the following four values:

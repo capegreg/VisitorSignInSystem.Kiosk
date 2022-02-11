@@ -60,7 +60,7 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
-            <TextBlock x:Name="VersionText" Text="Gregory Bologna ©" FontSize="14" />
+            <TextBlock x:Name="VersionText" Text="Manatee County Property Appraiser ©" FontSize="14" />
         </StackPanel>
     </Grid>
 </Page>

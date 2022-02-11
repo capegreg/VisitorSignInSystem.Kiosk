@@ -44,7 +44,7 @@ namespace VisitorSignInSystem
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            VersionText.Text = $"Gregory Bologna © {DateTime.Now.Year} (v{GetAppVersion()})";
+            VersionText.Text = $"Manatee County Property Appraiser © {DateTime.Now.Year} (v{GetAppVersion()})";
         }
     }
 }
